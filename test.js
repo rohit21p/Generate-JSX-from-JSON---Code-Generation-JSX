@@ -1,9 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
 function generateCodeFromObject(obj){
     //return a code generated string
-    return `<${obj.name}${getStyle(obj.style)}${obj.children.length > 0 ? '>' : '/>'}${obj.children.length > 0 ? getChildrens(obj.children) : '' }${obj.children.length > 0 ? "</" + obj.name + ">" : ''}`;
+    return `<${obj.name}${getStyle(obj.style)}${obj.children.length > 0 ? '>' : '/>'} 
+    ${obj.children.length > 0 ? getChildrens(obj.children) : '' }${obj.children.length > 0 ? "</" + obj.name + ">" : ''}`
    }
 
 function getStyle(obj) {
@@ -27,8 +25,33 @@ function getChildrens(arr) {
     })
     return ans;
 }
-   
-module.exports=generateCodeFromObject;
 
+let obj = {
+"type": "div",
+"name": "Clock",
+"root": true,
+"style": {
+"display": "flex",
+"flex- direction": "row",
+"justify- content": "center"
+},
+"children": [
+{
+"type": "div",
+"name": "Hour",
+"style": {},
+"children": []
+},
+{
+"type": "span",
+"name": "Minute",
+"style": {
+"color": "green",
+"font- size": 30
+},
+"children": []
+}
+]
+}
 
-// ReactDOM.render(<App />, document.getElementById("root"));
+console.log(generateCodeFromObject(obj))
