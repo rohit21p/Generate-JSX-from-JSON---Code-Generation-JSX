@@ -9,8 +9,8 @@ function generateCodeFromObject(obj){
 function getStyle(obj) {
     if (Object.keys(obj).length === 0) return '';
     let ans = ' style={{';
-    Object.keys(obj).forEach(key => {
-        ans = ans + getCamelCase(key) + ":\"" + obj[key] + "\",";
+    Object.keys(obj).forEach((key, index) => {
+        ans = ans + getCamelCase(key) + ":\"" + obj[key] + "\"" + ((index === Object.keys(obj).length - 1) ? "" : ",");
     });
     ans = ans + '}}';
     return ans;
