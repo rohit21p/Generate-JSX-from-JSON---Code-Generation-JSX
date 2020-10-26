@@ -1,10 +1,11 @@
 function generateCodeFromObject(obj){
     //return a code generated string
-    return `<${obj.name}${getStyle(obj.style)}${obj.children.length > 0 ? '>' : '/>'} 
-    ${obj.children.length > 0 ? getChildrens(obj.children) : '' }${obj.children.length > 0 ? "</" + obj.name + ">" : ''}`
+    return `<${obj.name}${getStyle(obj.style)}${obj.children && obj.children.length > 0 ? '>' : '/>'} 
+    ${obj.children && obj.children.length > 0 ? getChildrens(obj.children) : '' }${obj.children && obj.children.length > 0 ? "</" + obj.name + ">" : ''}`
    }
 
    function getStyle(obj) {
+    if (!obj) return '';
     if (Object.keys(obj).length === 0) return '';
     let ans = ' style={{';
     Object.keys(obj).forEach((key, index) => {
