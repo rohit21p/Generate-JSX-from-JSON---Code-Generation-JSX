@@ -15,7 +15,7 @@ function getStyle(obj) {
 }
 
 function getCamelCase(str) {
-    return str.includes("-") ? (str.split("-")[0] + str.split("-")[1].charAt(1).toUpperCase() + str.split("-")[1].substring(2)) : str;
+    return str.includes("-") ? (str.split("-")[0] + str.split("-")[1].charAt(0).toUpperCase() + str.split("-")[1].substring(1)) : str;
 }
 
 function getChildrens(arr) {
@@ -32,8 +32,8 @@ let obj = {
 "root": true,
 "style": {
 "display": "flex",
-"flex- direction": "row",
-"justify- content": "center"
+"flex-direction": "row",
+"justify-content": "center"
 },
 "children": [
 {
